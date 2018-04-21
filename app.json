@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "sdkVersion": "26.0.0",
+    "name": "Bram van Osta",
+    "version": "0.0.1",
+    "slug": "bram-van-osta",
+    "orientation": "portrait",
+    "scheme": "bram-van-osta",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#E86C9A"
+    }
+  }
+}
