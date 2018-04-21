@@ -36,7 +36,7 @@ class App extends React.Component {
     if (!isLoaded) {
       return (
         <AppLoading
-          startAsync={this.loadAsync}
+          startAsync={this.cacheResourcesAsync}
           onFinish={() => this.setState({ isLoaded: true })}
         />
       );
