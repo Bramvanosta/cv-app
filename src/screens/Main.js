@@ -1,16 +1,31 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Constants } from 'expo';
+import Swiper from 'react-native-swiper';
+
+import Education from './slider/Education';
+import WorkExperience from './slider/WorkExperience';
+import Miscellaneous from './slider/Miscellaneous';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    marginTop: Constants.statusBarHeight,
+    paddingHorizontal: 15,
   },
 });
 
 const Main = () => (
   <View style={styles.container}>
-    <Text>Main</Text>
+    <Swiper
+      ref={(swiper) => { this.swiper = swiper; }}
+      loop={false}
+      showsPagination={false}
+    >
+      <Education />
+      <WorkExperience />
+      <Miscellaneous />
+    </Swiper>
   </View>
 );
 
