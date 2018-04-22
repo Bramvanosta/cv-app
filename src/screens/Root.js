@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   Platform,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class Auth extends React.Component {
+class Root extends React.Component {
   constructor() {
     super();
 
@@ -78,7 +79,7 @@ class Auth extends React.Component {
 
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={this.props.onNavigate}>
           <ImageBackground style={styles.background} resizeMode="contain" source={splashImage}>
             <Button onPress={this.handleContactPress}>
               <Text style={styles.buttonText}>Contact</Text>
@@ -91,4 +92,8 @@ class Auth extends React.Component {
   }
 }
 
-export default Auth;
+Root.propTypes = {
+  onNavigate: PropTypes.func.isRequired,
+};
+
+export default Root;

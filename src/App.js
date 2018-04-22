@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Animated, Easing, View } from 'react-native';
 import { AppLoading, Asset } from 'expo';
 
 import splashImage from './../assets/splash.png';
 
 import Root from './screens/Root';
+import Main from './screens/Main';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,6 +19,8 @@ class App extends React.Component {
 
     this.state = {
       isLoaded: false,
+      showMain: false,
+      opacity: new Animated.Value(1),
     };
   }
   cacheResourcesAsync = async () => {
@@ -30,8 +33,18 @@ class App extends React.Component {
     return Promise.all([...cacheImages]);
   }
 
+  handleNavigation = () => {
+    Animated.timing(this.state.opacity, {
+      toValue: 0,
+      duration: 300,
+      easing: Easing.easeOut,
+    }).start(() => {
+      this.setState({ showMain: true });
+    });
+  }
+
   render() {
-    const { isLoaded } = this.state;
+    const { isLoaded, showMain } = this.state;
 
     if (!isLoaded) {
       return (
@@ -41,10 +54,17 @@ class App extends React.Component {
         />
       );
     }
-
+    
     return (
       <View style={styles.container}>
-        <Root />
+        {
+          !showMain ?
+            <Animated.View style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, zIndex: 1, opacity: this.state.opacity }}>
+              <Root onNavigate={this.handleNavigation} />
+            </Animated.View>
+            : null
+        }
+        <Main />
       </View>
     );
   }
