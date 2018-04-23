@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import { Svg } from 'expo';
 
-import { PRIMARY_COLOR } from './../../config/colors';
+import { COLOR_BLUE } from './../../config/colors';
+
+import SkillsList from './SkillsList';
 
 const { Circle } = Svg;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 15,
+    marginBottom: 35,
     alignItems: 'flex-start',
   },
 
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 5,
     paddingRight: 10,
-    backgroundColor: PRIMARY_COLOR,
+    backgroundColor: COLOR_BLUE,
     borderTopRightRadius: 3,
     borderBottomRightRadius: 3,
   },
@@ -31,7 +33,21 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
-  }
+  },
+
+  content: {
+    padding: 10,
+  },
+
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+  subtitle: {
+    marginTop: 5,
+    fontStyle: 'italic',
+  },
 });
 
 const EducationItem = ({ item }) => (
@@ -43,14 +59,24 @@ const EducationItem = ({ item }) => (
           cy={7}
           r={5}
           fill="#FFFFFF"
-          stroke={PRIMARY_COLOR}
+          stroke={COLOR_BLUE}
           strokeWidth={2}
         />
       </Svg>
       <Text style={styles.headerText}>{ item.date }</Text>
     </View>
     <View style={styles.content}>
-      <Text>{ item.title }</Text>
+      <Text style={styles.title}>{ item.title }</Text>
+      {
+        item.subtitle ?
+          <Text style={styles.subtitle}>{ item.subtitle }</Text>
+          : null
+      }
+      {
+        item.skills.length > 0 ?
+          <SkillsList skills={item.skills} />
+          : null
+      }
     </View>
   </View>
 );

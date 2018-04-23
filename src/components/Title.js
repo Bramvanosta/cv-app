@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import { Svg } from 'expo';
 
-import { PRIMARY_COLOR } from './../config/colors';
-
 const { Line } = Svg;
 
 const styles = StyleSheet.create({
@@ -18,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Title = ({ text }) => (
+const Title = ({ text, color }) => (
   <View style={styles.container}>
     <Text style={styles.title}>{ text }</Text>
     <Svg width={125} height={6}>
@@ -27,7 +25,7 @@ const Title = ({ text }) => (
         y1="0"
         x2="125"
         y2="0"
-        stroke={PRIMARY_COLOR}
+        stroke={color}
         strokeWidth="12"
       />
     </Svg>
@@ -36,6 +34,7 @@ const Title = ({ text }) => (
 
 Title.propTypes = {
   text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 }
 
 export default Title;

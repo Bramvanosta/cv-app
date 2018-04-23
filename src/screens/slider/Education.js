@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
-import { PRIMARY_COLOR } from './../../config/colors';
+import { COLOR_BLUE } from './../../config/colors';
 import data from './../../data/education.json';
 
 import Title from '../../components/Title';
@@ -14,16 +14,16 @@ const styles = StyleSheet.create({
 
   content: {
     flex: 1,
-    paddingVertical: 15,
+    paddingVertical: 35,
     marginLeft: 5,
     borderLeftWidth: 5,
-    borderLeftColor: PRIMARY_COLOR,
+    borderLeftColor: COLOR_BLUE,
   }
 });
 
 const Education = () => (
   <View style={styles.container}>
-    <Title text="Education" />
+    <Title text="Education" color={COLOR_BLUE} />
     <ScrollView
       contentContainerStyle={styles.content}
       alwaysBounceVertical={false}
