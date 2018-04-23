@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { Svg } from 'expo';
 
-import { COLOR_BLUE } from './../../config/colors';
+import { COLOR_PINK } from './../../config/colors';
 
 import SkillsList from './../core/SkillsList';
 
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 5,
     paddingRight: 10,
-    backgroundColor: COLOR_BLUE,
+    backgroundColor: COLOR_PINK,
     borderTopRightRadius: 3,
     borderBottomRightRadius: 3,
   },
@@ -40,29 +40,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
   },
-
-  title: {
-    flexWrap: 'wrap',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-
-  subtitle: {
-    marginTop: 5,
-    fontStyle: 'italic',
-  },
-
-  skillsContainer: {
-    marginTop: 10,
-  },
-
-  skillsTitle: {
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
 });
 
-const EducationItem = ({ item }) => (
+const Competencies = ({ competencies }) => (
   <View style={styles.container}>
     <View style={styles.header}>
       <Svg width={18} height={18} style={styles.dot}>
@@ -71,34 +51,20 @@ const EducationItem = ({ item }) => (
           cy={9}
           r={7}
           fill="#FFFFFF"
-          stroke={COLOR_BLUE}
+          stroke={COLOR_PINK}
           strokeWidth={2}
         />
       </Svg>
-      <Text style={styles.headerText}>{ item.date }</Text>
+      <Text style={styles.headerText}>Core competencies</Text>
     </View>
     <View style={styles.content}>
-      <Text style={styles.location}>{ item.location }</Text>
-      <Text style={styles.title}>{ item.title }</Text>
-      {
-        item.subtitle ?
-          <Text style={styles.subtitle}>{ item.subtitle }</Text>
-          : null
-      }
-      {
-        item.skills.length > 0 ?
-          <View style={styles.skillsContainer}>
-            <Text style={styles.skillsTitle}>Skills</Text>
-            <SkillsList skills={item.skills} />
-          </View>
-          : null
-      }
+      <SkillsList skills={competencies} />
     </View>
   </View>
 );
 
-EducationItem.propTypes = {
-  item: PropTypes.shape({}).isRequired,
+Competencies.propTypes = {
+  competencies: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default EducationItem;
+export default Competencies;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { COLOR_GREEN } from './../../config/colors';
 import data from './../../data/work_experience.json';
 
-import Title from './../../components/Title';
+import Title from './../../components/core/Title';
 import WorkExperienceItem from './../../components/workExperience/WorkExperienceItem';
 
 const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   
   scrollView: {
     paddingVertical: 35,
-  }
+  },
 });
 
 const WorkExperience = () => (
@@ -33,7 +33,7 @@ const WorkExperience = () => (
         showsVerticalScrollIndicator={false}
       >
         {
-          data.items.map(item => (
+          data.map(item => (
             <WorkExperienceItem key={item.id} item={item} />
           ))
         }

@@ -8,15 +8,6 @@ import { PRIMARY_COLOR } from './../../config/colors';
 const { Circle } = Svg;
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 10,
-  },
-
-  title: {
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-
   skillsContainer: {
     height: 20,
   },
@@ -44,17 +35,14 @@ class SkillsList extends React.PureComponent {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Skills</Text>
-        <View style={styles.skillsContainer}>
-          <FlatList
-            data={this.props.skills}
-            keyExtractor={item => item}
-            renderItem={this.renderSkill}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
+      <View style={styles.skillsContainer}>
+        <FlatList
+          data={this.props.skills}
+          keyExtractor={item => item}
+          renderItem={this.renderSkill}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
       </View>
     )
   }

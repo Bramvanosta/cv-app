@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { COLOR_BLUE } from './../../config/colors';
 import data from './../../data/education.json';
 
-import Title from '../../components/Title';
+import Title from '../../components/core/Title';
 import EducationItem from '../../components/education/EducationItem';
 
 const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   
   scrollView: {
     paddingVertical: 35,
-  }
+  },
 });
 
 const Education = () => (
@@ -33,7 +33,7 @@ const Education = () => (
         showsVerticalScrollIndicator={false}
       >
         {
-          data.items.map(item => (
+          data.map(item => (
             <EducationItem key={item.id} item={item} />
           ))
         }
