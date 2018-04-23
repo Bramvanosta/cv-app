@@ -17,6 +17,18 @@
     },
     {
       "id": 2,
+      "date": "2015 - 2016",
+      "title": "Bachelor's Degree in Web application development",
+      "location": "University of Bordeaux",
+      "skills": [
+        "Back-end development",
+        "Front-end development",
+        "Business development",
+        "Digital marketing"
+      ]
+    },
+    {
+      "id": 3,
       "date": "2013 - 2015",
       "title": "Higher National Diploma in Technology",
       "subtitle": "Multimedia and Internet specialisation",
@@ -30,17 +42,5 @@
         "Project management"
       ]
     },
-    {
-      "id": 3,
-      "date": "2015 - 2016",
-      "title": "Bachelor's Degree in Web application development",
-      "location": "University of Bordeaux",
-      "skills": [
-        "Back-end development",
-        "Front-end development",
-        "Business development",
-        "Digital marketing"
-      ]
-    }
   ]
 }

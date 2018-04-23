@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, Text } from 'react-native';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { Svg } from 'expo';
 
 import { COLOR_BLUE } from './../../config/colors';
@@ -36,10 +36,13 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    padding: 10,
+    width: Dimensions.get('window').width - 50,
+    marginTop: 10,
+    marginLeft: 10,
   },
 
   title: {
+    flexWrap: 'wrap',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -66,6 +69,7 @@ const EducationItem = ({ item }) => (
       <Text style={styles.headerText}>{ item.date }</Text>
     </View>
     <View style={styles.content}>
+      <Text style={styles.location}>{ item.location }</Text>
       <Text style={styles.title}>{ item.title }</Text>
       {
         item.subtitle ?
