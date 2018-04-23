@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
 
   dot: {
-    marginLeft: -10,
+    marginLeft: -9,
     marginRight: 10,
   },
 
@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
 const EducationItem = ({ item }) => (
   <View style={styles.container}>
     <View style={styles.header}>
-      <Svg width={14} height={14} style={styles.dot}>
+      <Svg width={18} height={18} style={styles.dot}>
         <Circle
-          cx={7}
-          cy={7}
-          r={5}
+          cx={9}
+          cy={9}
+          r={7}
           fill="#FFFFFF"
           stroke={COLOR_BLUE}
           strokeWidth={2}

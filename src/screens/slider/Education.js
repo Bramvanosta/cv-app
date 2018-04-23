@@ -13,28 +13,32 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    flex: 1,
-    paddingVertical: 35,
     marginLeft: 5,
     borderLeftWidth: 5,
     borderLeftColor: COLOR_BLUE,
+  },
+  
+  scrollView: {
+    paddingVertical: 35,
   }
 });
 
 const Education = () => (
   <View style={styles.container}>
     <Title text="Education" color={COLOR_BLUE} />
-    <ScrollView
-      contentContainerStyle={styles.content}
-      alwaysBounceVertical={false}
-      showsVerticalScrollIndicator={false}
-    >
-      {
-        data.items.map(item => (
-          <EducationItem key={item.id} item={item} />
-        ))
-      }
-    </ScrollView>
+    <View style={styles.content}>
+      <ScrollView
+        contentContainerStyle={styles.scrollView}
+        alwaysBounceVertical={false}
+        showsVerticalScrollIndicator={false}
+      >
+        {
+          data.items.map(item => (
+            <EducationItem key={item.id} item={item} />
+          ))
+        }
+      </ScrollView>
+    </View>
   </View>
 );
 
