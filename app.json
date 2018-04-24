@@ -10,6 +10,11 @@
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#E86C9A"
-    }
+    },
+    "assetBundlePatterns": [
+      "assets/icon.png",
+      "assets/splash.png",
+      "assets/projects/*"
+    ]
   }
 }
