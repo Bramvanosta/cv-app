@@ -14,7 +14,8 @@
     "assetBundlePatterns": [
       "assets/icon.png",
       "assets/splash.png",
-      "assets/projects/*"
+      "assets/projects/*",
+      "assets/icons/*"
     ]
   }
 }

@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, Animated, Easing, View } from 'react-native';
 import { AppLoading, Asset } from 'expo';
 
-import splashImage from './../assets/splash.png';
-
 import Root from './screens/Root';
 import Main from './screens/Main';
 
@@ -25,7 +23,22 @@ class App extends React.Component {
   }
   cacheResourcesAsync = async () => {
     const images = [
-      splashImage,
+      require('./../assets/splash.png'),
+      require('./../assets/icons/codepen.png'),
+      require('./../assets/icons/github.png'),
+      require('./../assets/icons/linkedin.png'),
+      require('./../assets/projects/info-tbm.png'),
+      require('./../assets/projects/irps.png'),
+      require('./../assets/projects/la-cave-des-ce.png'),
+      require('./../assets/projects/la-jembertie.png'),
+      require('./../assets/projects/le-press-book.png'),
+      require('./../assets/projects/lelien-ce.png'),
+      require('./../assets/projects/lestaubiere.png'),
+      require('./../assets/projects/mes-datas-et-moi.png'),
+      require('./../assets/projects/mieux-placer.png'),
+      require('./../assets/projects/praticampus.png'),
+      require('./../assets/projects/precisenior.png'),
+      require('./../assets/projects/rte.png'),
     ];
 
     const cacheImages = images.map(image => Asset.fromModule(image).downloadAsync());
