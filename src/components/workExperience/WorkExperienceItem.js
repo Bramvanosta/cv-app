@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 });
 
 const WorkExperienceItem = ({ item, onPress }) => (
-  <TouchableWithoutFeedback onPress={onPress}>
+  <TouchableWithoutFeedback onPress={item.projects ? onPress : null}>
     <View style={styles.container}>
         <View style={styles.topRow}>
           <View style={styles.header}>
