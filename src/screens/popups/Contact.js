@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { Dimensions, Linking, StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
+import Swiper from 'react-native-swiper';
 
 import Button from './../../components/core/Button';
 
@@ -48,6 +49,29 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
   },
+
+  swiperContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  itemContainer: {
+    marginBottom: 10,
+  },
+
+  itemTitle: {
+    marginBottom: 2,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+  icon: {
+    width: 25,
+    height: 25,
+    marginBottom: 5,
+  },
 });
 
 class ContactPopup extends React.PureComponent {
@@ -93,8 +117,49 @@ class ContactPopup extends React.PureComponent {
           <View style={styles.content}>
             <View style={styles.titleContainer}>
               <Text style={styles.titleStep}>Contact</Text>
-              {/* <Text>Select how long you&#39;ll be there</Text> */}
             </View>
+            <Swiper
+              ref={(swiper) => { this.swiper = swiper; }}
+              loop={false}
+              showsPagination={false}
+            >
+              <View style={styles.swiperContainer}>
+                <View style={styles.itemContainer}>
+                  <Text style={styles.itemTitle}>Phone number</Text>
+                  <Text style={styles.itemValue}>+33 6 01 78 83 82</Text>
+                </View>
+                <View style={styles.itemContainer}>
+                  <Text style={styles.itemTitle}>Email</Text>
+                  <Text style={styles.itemValue}>bramvanosta@gmail.com</Text>
+                </View>
+              </View>
+              <View style={styles.swiperContainer}>
+              <TouchableOpacity
+                  style={styles.itemContainer}
+                  onPress={() => Linking.openURL('https://github.com/Bramvanosta')}
+                >
+                  <Image style={styles.icon} source={require('./../../../assets/icons/github.png')}></Image>
+                  <Text style={styles.itemTitle}>Github</Text>
+                  <Text style={styles.itemValue}>/Bramvanosta</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.itemContainer}
+                  onPress={() => Linking.openURL('https://www.linkedin.com/in/bramvanosta/')}
+                >
+                  <Image style={styles.icon} source={require('./../../../assets/icons/linkedin.png')}></Image>
+                  <Text style={styles.itemTitle}>LinkedIn</Text>
+                  <Text style={styles.itemValue}>/in/bramvanosta</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.itemContainer}
+                  onPress={() => Linking.openURL('https://codepen.io/Bramvo/')}
+                >
+                  <Image style={styles.icon} source={require('./../../../assets/icons/codepen.png')}></Image>
+                  <Text style={styles.itemTitle}>Codepen</Text>
+                  <Text style={styles.itemValue}>/Bramvo</Text>
+                </TouchableOpacity>
+              </View>
+            </Swiper>
           </View>
         </View>
       </PopupDialog>
