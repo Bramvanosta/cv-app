@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions, StyleSheet, View, Text } from 'react-native';
+import { Dimensions, StyleSheet, View, TouchableWithoutFeedback, Text } from 'react-native';
 import { Svg } from 'expo';
 
 import { COLOR_GREEN } from './../../config/colors';
@@ -69,44 +69,47 @@ const styles = StyleSheet.create({
   },
 });
 
-const WorkExperienceItem = ({ item }) => (
-  <View style={styles.container}>
-    <View style={styles.topRow}>
-      <View style={styles.header}>
-        <Svg width={18} height={18} style={styles.dot}>
-          <Circle
-            cx={9}
-            cy={9}
-            r={7}
-            fill="#FFFFFF"
-            stroke={COLOR_GREEN}
-            strokeWidth={2}
-          />
-        </Svg>
-        <Text style={styles.headerText}>{ item.date }</Text>
-      </View>
-      {
-        item.jobTitle ?
-          <View style={styles.jobTitle}>
-            <Text style={styles.jobTitleText}>{ item.jobTitle }</Text>
+const WorkExperienceItem = ({ item, onPress }) => (
+  <TouchableWithoutFeedback onPress={onPress}>
+    <View style={styles.container}>
+        <View style={styles.topRow}>
+          <View style={styles.header}>
+            <Svg width={18} height={18} style={styles.dot}>
+              <Circle
+                cx={9}
+                cy={9}
+                r={7}
+                fill="#FFFFFF"
+                stroke={COLOR_GREEN}
+                strokeWidth={2}
+              />
+            </Svg>
+            <Text style={styles.headerText}>{ item.date }</Text>
           </View>
-          : null
-      }
+          {
+            item.jobTitle ?
+              <View style={styles.jobTitle}>
+                <Text style={styles.jobTitleText}>{ item.jobTitle }</Text>
+              </View>
+              : null
+          }
+        </View>
+        <View style={styles.content}>
+          {
+            item.location ?
+              <Text style={styles.location}>{ item.location }</Text>
+              : null
+          }
+          <Text style={styles.title}>{ item.title }</Text>
+          <Text style={styles.description}>{ item.description }</Text>
+        </View>
     </View>
-    <View style={styles.content}>
-      {
-        item.location ?
-          <Text style={styles.location}>{ item.location }</Text>
-          : null
-      }
-      <Text style={styles.title}>{ item.title }</Text>
-      <Text style={styles.description}>{ item.description }</Text>
-    </View>
-  </View>
+  </TouchableWithoutFeedback>
 );
 
 WorkExperienceItem.propTypes = {
   item: PropTypes.shape({}).isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default WorkExperienceItem;

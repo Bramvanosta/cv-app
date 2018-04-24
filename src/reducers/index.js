@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import appState from './AppReducers';
+import projectsState from './ProjectsReducers';
 
 const state = combineReducers({
-  app: appState,
+  projects: projectsState,
 });
 
 export default state;

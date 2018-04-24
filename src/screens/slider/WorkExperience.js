@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { COLOR_GREEN } from './../../config/colors';
 import data from './../../data/work_experience.json';
+
+import { showProjects } from './../../actions/ProjectsActions';
 
 import Title from './../../components/core/Title';
 import WorkExperienceItem from './../../components/workExperience/WorkExperienceItem';
@@ -23,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const WorkExperience = () => (
+const WorkExperience = ({ showProjects }) => (
   <View style={styles.container}>
     <Title text="Work Experience" color={COLOR_GREEN} />
     <View style={styles.content}>
@@ -34,7 +39,7 @@ const WorkExperience = () => (
       >
         {
           data.map(item => (
-            <WorkExperienceItem key={item.id} item={item} />
+            <WorkExperienceItem key={item.id} item={item} onPress={() => showProjects(item.projects)} />
           ))
         }
       </ScrollView>
@@ -42,4 +47,14 @@ const WorkExperience = () => (
   </View>
 );
 
-export default WorkExperience;
+WorkExperience.propTypes = {
+  showProjects: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    showProjects,
+  }, dispatch)
+);
+
+export default connect(null, mapDispatchToProps)(WorkExperience);
