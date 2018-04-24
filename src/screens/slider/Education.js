@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { COLOR_BLUE } from './../../config/colors';
-import data from './../../data/education.json';
+import data from './../../data/education';
 
 import Title from '../../components/core/Title';
 import EducationItem from '../../components/education/EducationItem';

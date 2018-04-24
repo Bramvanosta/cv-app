@@ -1,4 +1,4 @@
-[
+const data = [
   {
     "id": 1,
     "date": "2016 - Present",
@@ -41,4 +41,6 @@
       "Project management"
     ]
   }
-]
+];
+
+export default data;

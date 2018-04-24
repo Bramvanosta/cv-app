@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { COLOR_GREEN } from './../../config/colors';
-import data from './../../data/work_experience.json';
+import data from './../../data/work_experience';
 
 import { showProjects } from './../../actions/ProjectsActions';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { COLOR_PINK } from './../../config/colors';
-import data from './../../data/miscellaneous.json';
+import data from './../../data/miscellaneous';
 
 import Title from '../../components/core/Title';
 import Languages from '../../components/miscellaneous/Languages';

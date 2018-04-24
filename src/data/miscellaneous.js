@@ -1,4 +1,4 @@
-{
+const data = {
   "languages": [
     {
       "id": 1,
@@ -68,4 +68,6 @@
     "Problem solver",
     "Flexibility"
   ]
-}
+};
+
+export default data;

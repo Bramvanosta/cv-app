@@ -15,7 +15,7 @@ const slideAnimation = new SlideAnimation({
   slideFrom: 'bottom',
 });
 
-const DIALOG_HEIGT = Dimensions.get('window').height * 0.6;
+const DIALOG_HEIGT = Dimensions.get('window').height * 0.75;
 
 const styles = StyleSheet.create({
   container: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
 
   titleContainer: {
-    marginBottom: 20,
+    marginBottom: 5,
   },
 
   titleStep: {
